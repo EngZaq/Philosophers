@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   monitor.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zal-qais <zal-qais@student.42amman.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/01 16:01:13 by zal-qais          #+#    #+#             */
+/*   Updated: 2025/09/01 17:52:41 by zal-qais         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 void	print_message(char *str, t_philo *philo, int id)
@@ -14,7 +26,7 @@ void	print_message(char *str, t_philo *philo, int id)
 int	philosopher_dead(t_philo *philo, size_t time_to_die)
 {
 	pthread_mutex_lock(philo->meal_lock);
-	if (get_current_time() - philo->last_meal >= time_to_die
+	if (get_current_time() - philo->last_meal > time_to_die
 		&& philo->eating == 0)
 	{
 		pthread_mutex_unlock(philo->meal_lock);
@@ -77,7 +89,10 @@ void	*monitor(void *pointer)
 
 	philos = (t_philo *)pointer;
 	while (1)
+	{
 		if (check_if_dead(philos) == 1 || check_if_all_ate(philos) == 1)
 			break ;
+		usleep(100);
+	}
 	return (NULL);
 }

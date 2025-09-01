@@ -1,4 +1,4 @@
-SRCS_FILES = main.c init.c monitor.c routine.c threads.c utils.c
+SRCS_FILES = main.c init.c monitor.c routine.c threads.c utils.c eat.c
 SRCS_DIR = sources/
 SRCS = $(addprefix $(SRCS_DIR), $(SRCS_FILES))
 

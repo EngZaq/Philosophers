@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zal-qais <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/01 15:58:04 by zal-qais          #+#    #+#             */
+/*   Updated: 2025/09/01 15:58:53 by zal-qais         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 void	init_input(t_philo *philo, char **argv)
@@ -12,7 +24,8 @@ void	init_input(t_philo *philo, char **argv)
 		philo->num_times_to_eat = -1;
 }
 
-void	init_philos(t_philo *philos, t_table *table, pthread_mutex_t *chopsticks,
+void	init_philos(t_philo *philos, t_table *table,
+		pthread_mutex_t *chopsticks,
 		char **argv)
 {
 	int	i;

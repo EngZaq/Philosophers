@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zal-qais <zal-qais@student.42amman.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/01 17:09:16 by zal-qais          #+#    #+#             */
+/*   Updated: 2025/09/01 17:09:17 by zal-qais         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHILO_H
 # define PHILO_H
 # include <pthread.h>
@@ -61,5 +73,9 @@ int					ft_usleep(size_t microseconds);
 int					ft_strlen(char *str);
 void				print_message(char *str, t_philo *philo, int id);
 size_t				get_current_time(void);
+void				eat(t_philo *philo);
+void				put_forks(t_philo *philo);
+void				perform_eat(t_philo *philo);
+void				take_forks(t_philo *philo);
 
 #endif
