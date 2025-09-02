@@ -8,7 +8,7 @@ OBJS = $(addprefix $(OBJS_DIR), $(SRCS_FILES:.c=.o))
 NAME = philo
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -pthread -Iincludes
+CFLAGS = -Wall -Wextra -Werror -Iincludes
 
 HEADER = includes/philo.h
 

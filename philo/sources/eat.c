@@ -12,7 +12,7 @@
 
 #include "philo.h"
 
-void	take_forks(t_philo *philo)
+int	take_forks(t_philo *philo)
 {
 	pthread_mutex_t	*first;
 	pthread_mutex_t	*second;
@@ -33,15 +33,16 @@ void	take_forks(t_philo *philo)
 	{
 		ft_usleep(philo->time_to_die);
 		pthread_mutex_unlock(first);
-		return ;
+		return (0);
 	}
 	pthread_mutex_lock(second);
 	print_message("has taken a fork", philo, philo->id);
+	return (1);
 }
 
 void	perform_eat(t_philo *philo)
 {
-	size_t			eat_start;
+	size_t	eat_start;
 
 	pthread_mutex_lock(philo->meal_lock);
 	philo->last_meal = get_current_time();
@@ -78,7 +79,8 @@ void	put_forks(t_philo *philo)
 
 void	eat(t_philo *philo)
 {
-	take_forks(philo);
+	if (!take_forks(philo))
+		return ;
 	perform_eat(philo);
 	put_forks(philo);
 }

@@ -76,6 +76,6 @@ size_t				get_current_time(void);
 void				eat(t_philo *philo);
 void				put_forks(t_philo *philo);
 void				perform_eat(t_philo *philo);
-void				take_forks(t_philo *philo);
+int					take_forks(t_philo *philo);
 
 #endif

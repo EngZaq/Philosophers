@@ -29,13 +29,23 @@ void	*philo_routine(void *pointer)
 	t_philo	*philo;
 
 	philo = (t_philo *)pointer;
+	if (philo->num_of_philos == 1)
+	{
+		print_message("has taken a fork", philo, philo->id);
+		ft_usleep(philo->time_to_die);
+		print_message("died", philo, philo->id);
+		pthread_mutex_lock(philo->dead_lock);
+		*philo->dead = 1;
+		pthread_mutex_unlock(philo->dead_lock);
+		return (NULL);
+	}
 	if (philo->id % 2 == 0)
 		ft_usleep(1);
 	while (!dead_loop(philo))
 	{
 		eat(philo);
-		dream(philo);
 		think(philo);
+		dream(philo);
 	}
 	return (NULL);
 }
